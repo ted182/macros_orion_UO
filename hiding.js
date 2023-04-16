@@ -2,21 +2,21 @@ const temporizador = function(_num, _skillName)
 {
 	var totalTime = '';
 	const parteInteira = Math.floor(_num);
-  const parteFracionada = _num - parteInteira;
-  	
-  if (parteFracionada > 0) Orion.Wait(parteFracionada*1000);  	
+	const parteFracionada = _num - parteInteira;
 
-  for (var i = 0; i < parteInteira; i++) 
-  {
-    totalTime += "-";
-  }
+	if (parteFracionada > 0) Orion.Wait(parteFracionada*1000);  	
 
-  for (var j = 0; j <= parteInteira; j++) 
-  {
-    Orion.CharPrint(self, '0x0111', totalTime + ' [' + _skillName + ']');
-    totalTime = totalTime.replace('-', '#');
-    Orion.Wait(1000);
-  }
+	for (var i = 0; i < parteInteira; i++) 
+	{
+		totalTime += "-";
+	}
+
+	for (var j = 0; j <= parteInteira; j++) 
+	{
+		Orion.CharPrint(self, '0x0111', totalTime + ' [' + _skillName + ']');
+		totalTime = totalTime.replace('-', '#');
+		Orion.Wait(1000);
+	}
 };
 
 function esconder()
