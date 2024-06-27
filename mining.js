@@ -4,6 +4,7 @@ const config = {
 	axeType: '0x0E85',
 	findRadiusTile: 4,
 	timeoutLenhada: 15000,
+	tentativas: 10,
 	pesoMAX: 200,
 	oreBag: 0x4000E7C4,
 	pickaxeBag:0x4000F064,
@@ -90,7 +91,8 @@ const findToolSerial = function() {
 
 const minerar = function(tile) {	
 	var startTime;
-	var timeout;	
+	var timeout;
+	var tent = 0;
 	while ( !Player.Dead() ) {
 		startTime = Orion.Now();
 		timeout = startTime + config.timeoutLenhada;
@@ -102,6 +104,8 @@ const minerar = function(tile) {
 			if ( Orion.Now() > timeout ) break;
 		};
 		if ( Orion.InJournal(textosFinalizado, 'sys', 0, any, startTime) ) break;
+		if ( tent >= config.tentativas ) break;
+		tent += 1;
 	};
 };
 
