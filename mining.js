@@ -223,14 +223,14 @@ const report = function() {
 
 const reload = function() {
 	Orion.Print('reload...');
-	modoWorker(false);
+	//modoWorker(false);	//agora esse modo worker foi alterado e só pode ser setado na comerce room, ir manualmente lá e ativar o modo antes de dar play no macro
 	recalar.banco();
 	unloadOres();
 	restockPickaxe();
 	report();
 	gumpReport();
 	recalar.mina();
-	modoWorker(true);
+	//modoWorker(true);
 };
 
 const modoWorker = function(ativar) {
